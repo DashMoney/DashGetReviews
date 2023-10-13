@@ -204,6 +204,7 @@ class App extends React.Component {
     }
   };
 
+
   handleOnChangeValidation = (event) => {
     this.setState({
       isError: false,
@@ -265,7 +266,7 @@ class App extends React.Component {
           this.startSearch(nameDoc.$ownerId);
 
           this.setState({
-              SearchedNameDoc: nameDoc,
+            SearchedNameDoc: nameDoc,
               
             });
         }
@@ -273,11 +274,13 @@ class App extends React.Component {
       .catch((e) => {
         console.error("Something went wrong:\n", e);
         this.setState({
+          SearchedNameDoc: 'No NameDoc',
           isLoadingSearch: false,
         });
       })
       .finally(() => client.disconnect());
   };
+
 
   hideModal = () => {
     this.setState({
@@ -316,12 +319,105 @@ class App extends React.Component {
 
   // &&&    &&&   &&&   &&&   &&&   &&&   &&&&
 
-  handleLogout = () => { //ADD ALL THIS !!! -> 
+  handleLogout = () => {
     this.setState(
       {
-        //Add the state ->
-      },
-      () => this.componentDidMount()
+        isLoggedIn: false,
+
+      whichTab: "Search", 
+
+      isLoading: true, 
+      isLoadingWallet: true, //For wallet for topup
+
+      isLoadingSearch: false, 
+      isLoadingYourReviews: true, 
+
+      mode: "dark",
+
+      presentModal: "",
+      isModalShowing: false,
+      whichNetwork: "testnet",
+
+      nameToSearch: '',
+      nameFormat: false,
+
+      isTooLongNameError: false,
+
+      YourReviews1: false,
+      YourReviews2: false,
+
+      YourReviews: [
+          ],
+
+      YourReviewNames: [
+          ],
+
+      YourReplies: [
+         ],
+     
+
+      SearchedNameDoc: {
+        $ownerId: 'yrVfHiMoMktJSFpanAvaz25c3ghWd1MQegrsDvcFJVU',
+        label: 'BurgerJoint'
+      }, 
+
+      SearchedReviews:  [{
+        $ownerId: '4h5j6j',
+        $id: '7ku98rj',
+        review: 'Good service, would eat here again!',
+        rating: 5,
+        toId: 'fjghtyru',
+        $createdAt: Date.now() - 1000000,
+      },],
+
+
+      Search1: false,
+      Search2: false,
+
+
+      SearchedReviewNames: [{
+        $ownerId: '4h5j6j',
+        label: 'Alice'
+      },],
+
+      SearchedReplies: [
+        {
+          $ownerId: 'ui443fui',
+          $id: 'klsui4312',
+          reply: 'Thanks Alice',
+          reviewId: '7ku98rj',
+          $createdAt: Date.now() - 300000,
+        },
+      ],
+      
+
+      reviewToEdit: [], 
+      reviewToEditIndex: '',
+
+      replyReview:[], 
+      replyToEdit:[],
+      replyingToName: '',
+
+
+      mnemonic: "",
+      identity: '',
+      identityInfo: "",
+      identityRaw: "",
+      uniqueName: "",
+
+      accountBalance: "",
+
+      walletId: "",
+      mostRecentLogin: false,
+      platformLogin: false, //Will this be used? -> check ->
+      LocalForageKeys: [],
+
+      skipSynchronizationBeforeHeight: 910000,
+      mostRecentBlockHeight: 910000,
+
+      expandedTopNav: false,
+      }
+      //,() => this.componentDidMount()
     );
   };
 
@@ -1727,7 +1823,7 @@ class App extends React.Component {
           handleMode={this.handleMode}
           mode={this.state.mode}
           showModal={this.showModal}
-          
+
           whichNetwork={this.state.whichNetwork}
           isLoggedIn={this.state.isLoggedIn}
           toggleTopNav={this.toggleTopNav}
