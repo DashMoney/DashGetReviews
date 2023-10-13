@@ -267,16 +267,16 @@ class App extends React.Component {
 
           this.setState({
             SearchedNameDoc: nameDoc,
-              
             });
         }
       })
       .catch((e) => {
-        console.error("Something went wrong:\n", e);
         this.setState({
           SearchedNameDoc: 'No NameDoc',
           isLoadingSearch: false,
         });
+        console.error("Something went wrong:\n", e);
+        
       })
       .finally(() => client.disconnect());
   };
