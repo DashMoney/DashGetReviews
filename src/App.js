@@ -109,7 +109,7 @@ class App extends React.Component {
       //^^ Doesn't need names because they are only your replies.. -> yes
 
       SearchedNameDoc: {
-        $ownerId: 'yrVfHiMoMktJSFpanAvaz25c3ghWd1MQegrsDvcFJVU',
+        $ownerId: 'E98BXqGj6hNENCCnDmvXzCzmTCSgkBzEU3R18tfW1v2x',
         label: 'BurgerJoint'
       }, 
 
@@ -134,7 +134,7 @@ class App extends React.Component {
 
       SearchedReplies: [
         {
-          $ownerId: 'ui443fui',
+          $ownerId: 'E98BXqGj6hNENCCnDmvXzCzmTCSgkBzEU3R18tfW1v2x',
           $id: 'klsui4312',
           reply: 'Thanks Alice',
           reviewId: '7ku98rj',
@@ -167,7 +167,7 @@ class App extends React.Component {
       skipSynchronizationBeforeHeight: 910000,
       mostRecentBlockHeight: 910000,
 
-      DataContractDGR: 'GXFWx12dtKrW2hsk65JwNpvUpZtKEmtDXDfd5C4dJp1c',
+      DataContractDGR: '6MLeoRrsSr4DKV4zT1pSdsDBUhzaGACCbarGzbZyvyyT',
       DataContractDPNS: "GWRSAVFMjXx8HpQFaNJMqBV7MBgMK4br5UESsB4S31Ec",
 
       expandedTopNav: false,
@@ -206,9 +206,9 @@ class App extends React.Component {
 
 
   handleOnChangeValidation = (event) => {
-    this.setState({
-      isError: false,
-    });
+    // this.setState({
+    //   isTooLongNameError:false,
+    // });
 
     if (event.target.id === "validationCustomName") {
       this.nameValidate(event.target.value);
@@ -226,6 +226,7 @@ class App extends React.Component {
           nameFormat: true,
         });
     } else {
+      //isTooLongNameError => Add if statement here =>
       this.setState({
         nameToSearch: nameInput,
         nameFormat: false,
@@ -1925,7 +1926,6 @@ isLoadingSearch={this.state.isLoadingSearch}
 
             SearchedNameDoc={this.state.SearchedNameDoc}
 
-            handleSearchedReview={this.handleSearchedReview}
 
               />
 
@@ -2045,8 +2045,6 @@ isLoadingSearch={this.state.isLoadingSearch}
             SearchedReplies={this.state.SearchedReplies}
 
             SearchedNameDoc={this.state.SearchedNameDoc}
-
-            handleSearchedReview={this.handleSearchedReview}
 
               />
           </>
