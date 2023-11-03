@@ -10,9 +10,9 @@ import Spinner from "react-bootstrap/Spinner";
 //import Form from "react-bootstrap/Form";
 //import Alert from "react-bootstrap/Alert";
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import TopNav from "./Components/TopNav/TopNav";
 
@@ -62,8 +62,8 @@ class App extends React.Component {
       isLoading: true, //For identity and name And not identityInfo that is handle on display component
       isLoadingWallet: true, //For wallet for topup
 
-      isLoadingSearch: false, 
-      isLoadingYourReviews: true, 
+      isLoadingSearch: false,
+      isLoadingYourReviews: true,
 
       mode: "dark",
 
@@ -71,88 +71,89 @@ class App extends React.Component {
       isModalShowing: false,
       whichNetwork: "testnet",
 
-      nameToSearch: '',
+      nameToSearch: "",
       nameFormat: false,
 
-      isTooLongNameError: false, //Pass to form and add -> 
+      isTooLongNameError: false, //Pass to form and add ->
 
       YourReviews1: false,
       YourReviews2: false,
 
       YourReviews: [
-      //   {
-      //   $ownerId: '4h5j6j',
-      //   $id: '7ku98rj',
-      //   review: 'Good service, would eat here again!',
-      //   rating: 5,
-      //   toId: 'fjghtyru',
-      //   $createdAt: Date.now() - 1000000,
-      // },
-    ],
+        //   {
+        //   $ownerId: '4h5j6j',
+        //   $id: '7ku98rj',
+        //   review: 'Good service, would eat here again!',
+        //   rating: 5,
+        //   toId: 'fjghtyru',
+        //   $createdAt: Date.now() - 1000000,
+        // },
+      ],
 
       YourReviewNames: [
-      //   {
-      //   $ownerId: '4h5j6j',
-      //   label: 'Alice'
-      // },
-    ],
+        //   {
+        //   $ownerId: '4h5j6j',
+        //   label: 'Alice'
+        // },
+      ],
 
       YourReplies: [
-      //   {
-      //   $ownerId: 'ui443fui',
-      //   $id: 'klsui4312',
-      //   reply: 'Thanks Alice',
-      //   reviewId: '7ku98rj',
-      //   $createdAt: Date.now() - 300000,
-      // },
-    ],
+        //   {
+        //   $ownerId: 'ui443fui',
+        //   $id: 'klsui4312',
+        //   reply: 'Thanks Alice',
+        //   reviewId: '7ku98rj',
+        //   $createdAt: Date.now() - 300000,
+        // },
+      ],
       //^^ Doesn't need names because they are only your replies.. -> yes
 
       SearchedNameDoc: {
-        $ownerId: 'E98BXqGj6hNENCCnDmvXzCzmTCSgkBzEU3R18tfW1v2x',
-        label: 'BurgerJoint'
-      }, 
+        $ownerId: "E98BXqGj6hNENCCnDmvXzCzmTCSgkBzEU3R18tfW1v2x",
+        label: "BurgerJoint",
+      },
 
-      SearchedReviews:  [{
-        $ownerId: '4h5j6j',
-        $id: '7ku98rj',
-        review: 'Good service, would eat here again!',
-        rating: 5,
-        toId: 'fjghtyru',
-        $createdAt: Date.now() - 1000000,
-      },],
-
+      SearchedReviews: [
+        {
+          $ownerId: "4h5j6j",
+          $id: "7ku98rj",
+          review: "Good service, would eat here again!",
+          rating: 5,
+          toId: "fjghtyru",
+          $createdAt: Date.now() - 1000000,
+        },
+      ],
 
       Search1: false,
       Search2: false,
 
-
-      SearchedReviewNames: [{
-        $ownerId: '4h5j6j',
-        label: 'Alice'
-      },],
+      SearchedReviewNames: [
+        {
+          $ownerId: "4h5j6j",
+          label: "Alice",
+        },
+      ],
 
       SearchedReplies: [
         {
-          $ownerId: 'E98BXqGj6hNENCCnDmvXzCzmTCSgkBzEU3R18tfW1v2x',
-          $id: 'klsui4312',
-          reply: 'Thanks Alice',
-          reviewId: '7ku98rj',
+          $ownerId: "E98BXqGj6hNENCCnDmvXzCzmTCSgkBzEU3R18tfW1v2x",
+          $id: "klsui4312",
+          reply: "Thanks Alice",
+          reviewId: "7ku98rj",
           $createdAt: Date.now() - 300000,
         },
       ],
       //^^^ Doesn't need name because only the owner can reply.. nice
 
-      reviewToEdit: [], //use a function to find and pass to modal -> 
-      reviewToEditIndex: '',
+      reviewToEdit: [], //use a function to find and pass to modal ->
+      reviewToEditIndex: "",
 
-      replyReview:[], //This is for the create reply reviewId
-      replyToEdit:[],
-      replyingToName: '',
-
+      replyReview: [], //This is for the create reply reviewId
+      replyToEdit: [],
+      replyingToName: "",
 
       mnemonic: "",
-      identity: '',
+      identity: "",
       identityInfo: "",
       identityRaw: "",
       uniqueName: "",
@@ -164,10 +165,10 @@ class App extends React.Component {
       platformLogin: false, //Will this be used? -> check ->
       LocalForageKeys: [],
 
-      skipSynchronizationBeforeHeight: 910000,
-      mostRecentBlockHeight: 910000,
+      skipSynchronizationBeforeHeight: 905000,
+      mostRecentBlockHeight: 905000,
 
-      DataContractDGR: '6MLeoRrsSr4DKV4zT1pSdsDBUhzaGACCbarGzbZyvyyT',
+      DataContractDGR: "GvMq3H76kUZotsdwPv9fdAuYGjk2XRojT5Ufj32WD4Xn",
       DataContractDPNS: "GWRSAVFMjXx8HpQFaNJMqBV7MBgMK4br5UESsB4S31Ec",
 
       expandedTopNav: false,
@@ -204,7 +205,6 @@ class App extends React.Component {
     }
   };
 
-
   handleOnChangeValidation = (event) => {
     // this.setState({
     //   isTooLongNameError:false,
@@ -213,7 +213,6 @@ class App extends React.Component {
     if (event.target.id === "validationCustomName") {
       this.nameValidate(event.target.value);
     }
-
   };
 
   nameValidate = (nameInput) => {
@@ -221,10 +220,10 @@ class App extends React.Component {
     let valid = regex.test(nameInput);
 
     if (valid) {
-        this.setState({
-          nameToSearch: nameInput,
-          nameFormat: true,
-        });
+      this.setState({
+        nameToSearch: nameInput,
+        nameFormat: true,
+      });
     } else {
       //isTooLongNameError => Add if statement here =>
       this.setState({
@@ -235,11 +234,10 @@ class App extends React.Component {
   };
 
   searchName = () => {
-
     //add spinner start -> connect ->
-    // clear previous results -> 
+    // clear previous results ->
 
-    this.setState({ 
+    this.setState({
       isLoadingSearch: true,
       SearchedReviews: [],
     });
@@ -257,7 +255,7 @@ class App extends React.Component {
         if (d === null) {
           console.log("No DPNS Document for this Name.");
           this.setState({
-            SearchedNameDoc: 'No NameDoc', //Handle if name fails -> 
+            SearchedNameDoc: "No NameDoc", //Handle if name fails ->
             isLoadingSearch: false,
           });
         } else {
@@ -268,20 +266,18 @@ class App extends React.Component {
 
           this.setState({
             SearchedNameDoc: nameDoc,
-            });
+          });
         }
       })
       .catch((e) => {
         this.setState({
-          SearchedNameDoc: 'No NameDoc',
+          SearchedNameDoc: "No NameDoc",
           isLoadingSearch: false,
         });
         console.error("Something went wrong:\n", e);
-        
       })
       .finally(() => client.disconnect());
   };
-
 
   hideModal = () => {
     this.setState({
@@ -312,9 +308,9 @@ class App extends React.Component {
     this.setState(
       {
         reviewToEdit: review,
-        reviewToEditIndex: index
+        reviewToEditIndex: index,
       },
-      () => this.showModal('EditReviewModal')
+      () => this.showModal("EditReviewModal")
     );
   };
 
@@ -325,98 +321,94 @@ class App extends React.Component {
       {
         isLoggedIn: false,
 
-      whichTab: "Search", 
+        whichTab: "Search",
 
-      isLoading: true, 
-      isLoadingWallet: true, //For wallet for topup
+        isLoading: true,
+        isLoadingWallet: true, //For wallet for topup
 
-      isLoadingSearch: false, 
-      isLoadingYourReviews: true, 
+        isLoadingSearch: false,
+        isLoadingYourReviews: true,
 
-      mode: "dark",
+        mode: "dark",
 
-      presentModal: "",
-      isModalShowing: false,
-      whichNetwork: "testnet",
+        presentModal: "",
+        isModalShowing: false,
+        whichNetwork: "testnet",
 
-      nameToSearch: '',
-      nameFormat: false,
+        nameToSearch: "",
+        nameFormat: false,
 
-      isTooLongNameError: false,
+        isTooLongNameError: false,
 
-      YourReviews1: false,
-      YourReviews2: false,
+        YourReviews1: false,
+        YourReviews2: false,
 
-      YourReviews: [
-          ],
+        YourReviews: [],
 
-      YourReviewNames: [
-          ],
+        YourReviewNames: [],
 
-      YourReplies: [
-         ],
-     
+        YourReplies: [],
 
-      SearchedNameDoc: {
-        $ownerId: 'yrVfHiMoMktJSFpanAvaz25c3ghWd1MQegrsDvcFJVU',
-        label: 'BurgerJoint'
-      }, 
-
-      SearchedReviews:  [{
-        $ownerId: '4h5j6j',
-        $id: '7ku98rj',
-        review: 'Good service, would eat here again!',
-        rating: 5,
-        toId: 'fjghtyru',
-        $createdAt: Date.now() - 1000000,
-      },],
-
-
-      Search1: false,
-      Search2: false,
-
-
-      SearchedReviewNames: [{
-        $ownerId: '4h5j6j',
-        label: 'Alice'
-      },],
-
-      SearchedReplies: [
-        {
-          $ownerId: 'ui443fui',
-          $id: 'klsui4312',
-          reply: 'Thanks Alice',
-          reviewId: '7ku98rj',
-          $createdAt: Date.now() - 300000,
+        SearchedNameDoc: {
+          $ownerId: "yrVfHiMoMktJSFpanAvaz25c3ghWd1MQegrsDvcFJVU",
+          label: "BurgerJoint",
         },
-      ],
-      
 
-      reviewToEdit: [], 
-      reviewToEditIndex: '',
+        SearchedReviews: [
+          {
+            $ownerId: "4h5j6j",
+            $id: "7ku98rj",
+            review: "Good service, would eat here again!",
+            rating: 5,
+            toId: "fjghtyru",
+            $createdAt: Date.now() - 1000000,
+          },
+        ],
 
-      replyReview:[], 
-      replyToEdit:[],
-      replyingToName: '',
+        Search1: false,
+        Search2: false,
 
+        SearchedReviewNames: [
+          {
+            $ownerId: "4h5j6j",
+            label: "Alice",
+          },
+        ],
 
-      mnemonic: "",
-      identity: '',
-      identityInfo: "",
-      identityRaw: "",
-      uniqueName: "",
+        SearchedReplies: [
+          {
+            $ownerId: "ui443fui",
+            $id: "klsui4312",
+            reply: "Thanks Alice",
+            reviewId: "7ku98rj",
+            $createdAt: Date.now() - 300000,
+          },
+        ],
 
-      accountBalance: "",
+        reviewToEdit: [],
+        reviewToEditIndex: "",
 
-      walletId: "",
-      mostRecentLogin: false,
-      platformLogin: false, //Will this be used? -> check ->
-      LocalForageKeys: [],
+        replyReview: [],
+        replyToEdit: [],
+        replyingToName: "",
 
-      skipSynchronizationBeforeHeight: 910000,
-      mostRecentBlockHeight: 910000,
+        mnemonic: "",
+        identity: "",
+        identityInfo: "",
+        identityRaw: "",
+        uniqueName: "",
 
-      expandedTopNav: false,
+        accountBalance: "",
+
+        walletId: "",
+        mostRecentLogin: false,
+        platformLogin: false, //Will this be used? -> check ->
+        LocalForageKeys: [],
+
+        skipSynchronizationBeforeHeight: 910000,
+        mostRecentBlockHeight: 910000,
+
+        expandedTopNav: false,
       }
       //,() => this.componentDidMount()
     );
@@ -639,14 +631,14 @@ class App extends React.Component {
 
   //thIS IS A VERY SIMPLE lOGIN -> THERE IS A WHOLE LOT OF NOTHING
 
-  handleMostRecentLogin = (theMnemonic) => { 
-    
+  handleMostRecentLogin = (theMnemonic) => {
     this.getYourReviews(this.state.identity);
     this.getIdentityInfo(this.state.identity);
     this.getWalletwithMnem(theMnemonic);
   };
 
-  handleStartQuerySeq = (theIdentity, theMnemonic) => { //USED BY MOSTRECENT AND PLATFORM LOGIN BECAUSE YOU HAVE THE IDENTITY AND NAME.
+  handleStartQuerySeq = (theIdentity, theMnemonic) => {
+    //USED BY MOSTRECENT AND PLATFORM LOGIN BECAUSE YOU HAVE THE IDENTITY AND NAME.
     this.getYourReviews(theIdentity);
     this.getIdentityInfo(theIdentity);
     this.getWalletwithMnem(theMnemonic);
@@ -716,11 +708,11 @@ class App extends React.Component {
       this.getNamefromIdentity(theIdentity);
       this.getIdentityInfo(theIdentity);
     }
-    
+
     this.getWalletwithMnem(theMnemonic);
   };
 
- // ####   ####   ####   ####  
+  // ####   ####   ####   ####
 
   getNamefromIdentity = (theIdentity) => {
     const client = new Dash.Client({
@@ -887,21 +879,21 @@ class App extends React.Component {
   // ####   ####   ####   ####   ####   ####   #####
 
   //PUT THE QUERY SEARCHES HERE
-  startSearch = (identityToSearch) =>{ //Called from name doc pulled -> 
+  startSearch = (identityToSearch) => {
+    //Called from name doc pulled ->
     this.getSearchReviews(identityToSearch);
-  }
+  };
 
   searchRace = () => {
-    if (this.state.Search1 &&
-      this.state.Search2) {
-  this.setState({
-    Search1: false,
-    Search2: false,
-    //DONT HAVE TO ADD STATE TO PUSH TO DISPLAY BECAUSE THE REVIEWS AND NAMES PUSHED TOGETHER AND THEN THREADS APPEAR <- SO DO I WANT TO QUERY NAME FIRST THEN?
-    isLoadingSearch: false,
-  });
-}
-  }
+    if (this.state.Search1 && this.state.Search2) {
+      this.setState({
+        Search1: false,
+        Search2: false,
+        //DONT HAVE TO ADD STATE TO PUSH TO DISPLAY BECAUSE THE REVIEWS AND NAMES PUSHED TOGETHER AND THEN THREADS APPEAR <- SO DO I WANT TO QUERY NAME FIRST THEN?
+        isLoadingSearch: false,
+      });
+    }
+  };
 
   getSearchReviews = (theIdentity) => {
     //console.log("Calling getSearchReviews");
@@ -920,14 +912,11 @@ class App extends React.Component {
       return client.platform.documents.get("DGRContract.dgrreview", {
         where: [
           ["toId", "==", theIdentity],
-          ['$createdAt', '<=' , Date.now()]
-    ],
-    orderBy: [
-    ['$createdAt', 'desc'],
-  ],
+          ["$createdAt", "<=", Date.now()],
+        ],
+        orderBy: [["$createdAt", "desc"]],
       });
     };
-
 
     getDocuments()
       .then((d) => {
@@ -943,26 +932,26 @@ class App extends React.Component {
             () => this.searchRace()
           );
         } else {
-
           let docArray = [];
           //console.log("Getting Search Reviews");
 
-          for(const n of d) {
-            let returnedDoc = n.toJSON()
-             //console.log("Review:\n", returnedDoc);
-             returnedDoc.toId = Identifier.from(returnedDoc.toId, 'base64').toJSON();
-             //console.log("newReview:\n", returnedDoc);
+          for (const n of d) {
+            let returnedDoc = n.toJSON();
+            //console.log("Review:\n", returnedDoc);
+            returnedDoc.toId = Identifier.from(
+              returnedDoc.toId,
+              "base64"
+            ).toJSON();
+            //console.log("newReview:\n", returnedDoc);
             docArray = [...docArray, returnedDoc];
           }
           this.getSearchReviewNames(docArray);
-          this.getSearchReplies(docArray); 
-          
-          
+          this.getSearchReplies(docArray);
         }
       })
       .catch((e) => console.error("Something went wrong:\n", e))
       .finally(() => client.disconnect());
-  }; 
+  };
 
   getSearchReviewNames = (docArray) => {
     const clientOpts = {
@@ -985,9 +974,9 @@ class App extends React.Component {
     let arrayOfOwnerIds = [...setOfOwnerIds];
 
     // Start of Setting Unique reviews
-    let arrayOfReviews = arrayOfOwnerIds.map(id =>{
-       return docArray.find(doc => id === doc.$ownerId)
-    })
+    let arrayOfReviews = arrayOfOwnerIds.map((id) => {
+      return docArray.find((doc) => id === doc.$ownerId);
+    });
     // End of Setting Unique reviews
 
     arrayOfOwnerIds = arrayOfOwnerIds.map((item) =>
@@ -1029,10 +1018,7 @@ class App extends React.Component {
         );
       })
       .catch((e) => {
-        console.error(
-          "Something went wrong getting Search Names:\n",
-          e
-        );
+        console.error("Something went wrong getting Search Names:\n", e);
       })
       .finally(() => client.disconnect());
     //END OF NAME RETRIEVAL
@@ -1075,48 +1061,47 @@ class App extends React.Component {
       .then((d) => {
         let docArray = [];
 
-        for(const n of d) {
-          let returnedDoc = n.toJSON()
-           //console.log("Thr:\n", returnedDoc);
-           returnedDoc.reviewId = Identifier.from(returnedDoc.reviewId, 'base64').toJSON();
-           //console.log("newThr:\n", returnedDoc);
+        for (const n of d) {
+          let returnedDoc = n.toJSON();
+          //console.log("Thr:\n", returnedDoc);
+          returnedDoc.reviewId = Identifier.from(
+            returnedDoc.reviewId,
+            "base64"
+          ).toJSON();
+          //console.log("newThr:\n", returnedDoc);
           docArray = [...docArray, returnedDoc];
         }
 
-          this.setState(
-            {
-              Search2: true,
-              SearchedReplies: docArray
-            },
-            () => this.searchRace()
-          );
-        
+        this.setState(
+          {
+            Search2: true,
+            SearchedReplies: docArray,
+          },
+          () => this.searchRace()
+        );
       })
       .catch((e) => {
         console.error("Something went wrong Search Replies:\n", e);
-        
       })
       .finally(() => client.disconnect());
   };
 
-  //getSearchReviewThreadNames -> There is not name retrieval because only owner can replay. 
-  
-  //Need to filter to ensure. -> 
+  //getSearchReviewThreadNames -> There is not name retrieval because only owner can replay.
+
+  //Need to filter to ensure. ->
 
   //pUT THE YOUR STUFF HERE -> HOW IS IT DIFFERENT the identity is your identity and actually like Search replies I should filter out ones that don't belong to the person of the review
 
-
   yourReviewsRace = () => {
-    if (this.state.YourReviews1 &&
-      this.state.YourReviews2) {
-  this.setState({
-    YourReviews1: false,
-    YourReviews2: false,
-    
-    isLoadingYourReviews: false,
-  });
-}
-  }
+    if (this.state.YourReviews1 && this.state.YourReviews2) {
+      this.setState({
+        YourReviews1: false,
+        YourReviews2: false,
+
+        isLoadingYourReviews: false,
+      });
+    }
+  };
 
   getYourReviews = (theIdentity) => {
     //console.log("Calling getYourReviews");
@@ -1135,14 +1120,11 @@ class App extends React.Component {
       return client.platform.documents.get("DGRContract.dgrreview", {
         where: [
           ["toId", "==", theIdentity],
-          ['$createdAt', '<=' , Date.now()]
-    ],
-    orderBy: [
-    ['$createdAt', 'desc'],
-  ],
+          ["$createdAt", "<=", Date.now()],
+        ],
+        orderBy: [["$createdAt", "desc"]],
       });
     };
-
 
     getDocuments()
       .then((d) => {
@@ -1160,22 +1142,23 @@ class App extends React.Component {
           let docArray = [];
           //console.log("Getting YourReviews Reviews");
 
-          for(const n of d) {
-            let returnedDoc = n.toJSON()
-             //console.log("Review:\n", returnedDoc);
-             returnedDoc.toId = Identifier.from(returnedDoc.toId, 'base64').toJSON();
-             //console.log("newReview:\n", returnedDoc);
+          for (const n of d) {
+            let returnedDoc = n.toJSON();
+            //console.log("Review:\n", returnedDoc);
+            returnedDoc.toId = Identifier.from(
+              returnedDoc.toId,
+              "base64"
+            ).toJSON();
+            //console.log("newReview:\n", returnedDoc);
             docArray = [...docArray, returnedDoc];
           }
           this.getYourReviewNames(docArray);
-          this.getYourReplies(docArray); 
-          
-          
+          this.getYourReplies(docArray);
         }
       })
       .catch((e) => console.error("Something went wrong:\n", e))
       .finally(() => client.disconnect());
-  }; 
+  };
 
   getYourReviewNames = (docArray) => {
     const clientOpts = {
@@ -1231,16 +1214,12 @@ class App extends React.Component {
             YourReviewNames: nameDocArray,
             YourReviews: docArray,
             YourReviews1: true,
-            
           },
           () => this.yourReviewsRace()
         );
       })
       .catch((e) => {
-        console.error(
-          "Something went wrong getting YourReview Names:\n",
-          e
-        );
+        console.error("Something went wrong getting YourReview Names:\n", e);
       })
       .finally(() => client.disconnect());
     //END OF NAME RETRIEVAL
@@ -1283,68 +1262,66 @@ class App extends React.Component {
       .then((d) => {
         let docArray = [];
 
-        for(const n of d) {
-          let returnedDoc = n.toJSON()
-           //console.log("Thr:\n", returnedDoc);
-           returnedDoc.reviewId = Identifier.from(returnedDoc.reviewId, 'base64').toJSON();
-           //console.log("newThr:\n", returnedDoc);
+        for (const n of d) {
+          let returnedDoc = n.toJSON();
+          //console.log("Thr:\n", returnedDoc);
+          returnedDoc.reviewId = Identifier.from(
+            returnedDoc.reviewId,
+            "base64"
+          ).toJSON();
+          //console.log("newThr:\n", returnedDoc);
           docArray = [...docArray, returnedDoc];
         }
 
-          this.setState(
-            {
-              YourReviews2: true,
-              YourReplies: docArray
-            },
-            () => this.yourReviewsRace()
-          );
-        
+        this.setState(
+          {
+            YourReviews2: true,
+            YourReplies: docArray,
+          },
+          () => this.yourReviewsRace()
+        );
       })
       .catch((e) => {
         console.error("Something went wrong Search Replies:\n", e);
-        
       })
       .finally(() => client.disconnect());
   };
 
-  
   //$$  $$   $$$  $$  $  $$  $$$  $$$  $$  $$
 
- //handleYourReview = (reviewDoc) =>{
+  //handleYourReview = (reviewDoc) =>{
 
-    //This will decide to create or edit => HANDLED IN THE EDITCREATEBUTTONCOMPONENT
-    //1) search if there is already a reply to this review -> SAME AS REVIEW BUT DONE HERE -> THE FLOW DIFFERENCE BETWEEN REVIEWS AND REPLIES IS INTERESTING
-    //2) if there is edit, if there is not create -> 
+  //This will decide to create or edit => HANDLED IN THE EDITCREATEBUTTONCOMPONENT
+  //1) search if there is already a reply to this review -> SAME AS REVIEW BUT DONE HERE -> THE FLOW DIFFERENCE BETWEEN REVIEWS AND REPLIES IS INTERESTING
+  //2) if there is edit, if there is not create ->
   //}
 
   handleYourReply = (reviewDoc, revieweeLabel) => {
     //First search and see if there is already a reply for the review
-    let replyDoc = this.state.YourReplies.find((doc)=>{
+    let replyDoc = this.state.YourReplies.find((doc) => {
       return doc.reviewId === reviewDoc.$id;
-    }); 
-    
-    if(replyDoc !== undefined){
-      
-      this.setState({
-        replyReview: reviewDoc,
-        replyToEdit: replyDoc,
-        replyingToName: revieweeLabel,
-      },()=>this.showModal('EditReplyModal'));
-      
+    });
+
+    if (replyDoc !== undefined) {
+      this.setState(
+        {
+          replyReview: reviewDoc,
+          replyToEdit: replyDoc,
+          replyingToName: revieweeLabel,
+        },
+        () => this.showModal("EditReplyModal")
+      );
     } else {
-
-      this.setState({
-        replyReview: reviewDoc,
-        replyToEdit: [],
-        replyingToName: revieweeLabel,
-      },()=>this.showModal('CreateReplyModal'));
-
+      this.setState(
+        {
+          replyReview: reviewDoc,
+          replyToEdit: [],
+          replyingToName: revieweeLabel,
+        },
+        () => this.showModal("CreateReplyModal")
+      );
     }
-
-  }
-  
-  
-    
+  };
 
   createReview = (reviewObject) => {
     console.log("Called Create Review");
@@ -1385,7 +1362,6 @@ class App extends React.Component {
         toId: this.state.SearchedNameDoc.$ownerId,
         review: reviewObject.review,
         rating: reviewObject.rating,
-        
       };
       //console.log('Review to Create: ', reviewProperties);
 
@@ -1422,9 +1398,9 @@ class App extends React.Component {
           $id: returnedDoc.$id,
 
           review: reviewObject.review,
-        rating: reviewObject.rating,
+          rating: reviewObject.rating,
 
-        $createdAt: returnedDoc.$createdAt
+          $createdAt: returnedDoc.$createdAt,
         };
 
         this.setState({
@@ -1434,22 +1410,20 @@ class App extends React.Component {
       })
       .catch((e) => {
         console.error("Something went wrong with review creation:\n", e);
-        
       })
       .finally(() => client.disconnect());
 
-      //THIS BELOW IS THE NAME DOC ADD, SO PROCESSES DURING DOC SUBMISSION ***
+    //THIS BELOW IS THE NAME DOC ADD, SO PROCESSES DURING DOC SUBMISSION ***
     let nameDoc = {
       $ownerId: this.state.identity,
       label: this.state.uniqueName,
     };
 
     this.setState({
-      SearchedReviewNames: [nameDoc, ...this.state.SearchedReviewNames]
+      SearchedReviewNames: [nameDoc, ...this.state.SearchedReviewNames],
     });
     //END OF NAME DOC ADD***
   };
-
 
   editReview = (reviewObject) => {
     console.log("Called Edit Review");
@@ -1489,45 +1463,28 @@ class App extends React.Component {
       const [document] = await client.platform.documents.get(
         "DGRContract.dgrreview",
         {
-          where: [
-            [
-              "$id",
-              "==",
-              this.state.reviewToEdit.$id,
-            ],
-          ],
+          where: [["$id", "==", this.state.reviewToEdit.$id]],
         }
       );
 
-      
-
-      if (
-        this.state.reviewToEdit.review !==
-        reviewObject.review
-      ) {
+      if (this.state.reviewToEdit.review !== reviewObject.review) {
         document.set("review", reviewObject.review);
       }
 
-      if (
-        this.state.reviewToEdit.rating !==
-        reviewObject.rating
-      ) {
+      if (this.state.reviewToEdit.rating !== reviewObject.rating) {
         document.set("review", reviewObject.rating);
       }
 
       await platform.documents.broadcast({ replace: [document] }, identity);
       return document;
-     
 
       //############################################################
       //This below disconnects the document editing..***
 
-       //return document;
+      //return document;
 
       //This is to disconnect the Document editing***
       //############################################################
-
-      
     };
 
     submitReviewDoc()
@@ -1542,7 +1499,7 @@ class App extends React.Component {
           review: reviewObject.review,
           rating: reviewObject.rating,
 
-          $createdAt: returnedDoc.$createdAt
+          $createdAt: returnedDoc.$createdAt,
         };
 
         let editedReviews = this.state.SearchedReviews;
@@ -1558,190 +1515,172 @@ class App extends React.Component {
         console.error("Something went wrong with review edit:\n", e);
       })
       .finally(() => client.disconnect());
-
-   };
-
- createReply = (replyObject) => {
-  console.log("Called Create Reply");
-
-  this.setState({
-    isLoadingYourReviews: true,
-  });
-
-  const clientOpts = {
-    network: this.state.whichNetwork,
-    wallet: {
-      mnemonic: this.state.mnemonic,
-      adapter: LocalForage.createInstance,
-      unsafeOptions: {
-        skipSynchronizationBeforeHeight:
-          this.state.skipSynchronizationBeforeHeight,
-      },
-    },
-    apps: {
-      DGRContract: {
-        contractId: this.state.DataContractDGR,
-      },
-    },
   };
-  const client = new Dash.Client(clientOpts);
 
-  const submitReviewDoc = async () => {
-    const { platform } = client;
+  createReply = (replyObject) => {
+    console.log("Called Create Reply");
 
-    let identity = "";
-    if (this.state.identityRaw !== "") {
-      identity = this.state.identityRaw;
-    } else {
-      identity = await platform.identities.get(this.state.identity);
-    }
+    this.setState({
+      isLoadingYourReviews: true,
+    });
 
-    const replyProperties = {
-      reviewId: this.state.replyReview.$id,
-      reply: replyObject.reply,
-      
+    const clientOpts = {
+      network: this.state.whichNetwork,
+      wallet: {
+        mnemonic: this.state.mnemonic,
+        adapter: LocalForage.createInstance,
+        unsafeOptions: {
+          skipSynchronizationBeforeHeight:
+            this.state.skipSynchronizationBeforeHeight,
+        },
+      },
+      apps: {
+        DGRContract: {
+          contractId: this.state.DataContractDGR,
+        },
+      },
     };
-    //console.log('Reply to Create: ', replyProperties);
+    const client = new Dash.Client(clientOpts);
 
-    // Create the note document
-    const dgrDocument = await platform.documents.create(
-      "DGRContract.dgrreply",
-      identity,
-      replyProperties
-    );
+    const submitReviewDoc = async () => {
+      const { platform } = client;
 
-    //############################################################
-    //This below disconnects the document sending..***
-
-    // return dgrDocument;
-
-    //This is to disconnect the Document Creation***
-    //############################################################
-
-    const documentBatch = {
-      create: [dgrDocument], // Document(s) to create
-    };
-
-    await platform.documents.broadcast(documentBatch, identity);
-    return dgrDocument;
-  };
-
-  submitReviewDoc()
-    .then((d) => {
-      let returnedDoc = d.toJSON();
-      console.log("Document:\n", returnedDoc);
-
-      let reply = {
-        $ownerId: returnedDoc.$ownerId,
-        $id: returnedDoc.$id,
-        $createdAt: returnedDoc.$createdAt,
-
-        reviewId: this.state.replyReview.$id,
-        reply: replyObject.reply,
-      
-      };
-
-      this.setState({
-        YourReplies: [reply, ...this.state.YourReplies],
-        isLoadingYourReviews: false,
-      });
-    })
-    .catch((e) => {
-      console.error("Something went wrong with reply creation:\n", e);
-      
-    })
-    .finally(() => client.disconnect());
-
- }
-
-
- editReply = (replyObject) => {
-  console.log("Called Edit Reply");
-
-  this.setState({
-    isLoadingYourReviews: true,
-  });
-
-  const clientOpts = {
-    network: this.state.whichNetwork,
-    wallet: {
-      mnemonic: this.state.mnemonic,
-      adapter: LocalForage.createInstance,
-      unsafeOptions: {
-        skipSynchronizationBeforeHeight:
-          this.state.skipSynchronizationBeforeHeight,
-      },
-    },
-    apps: {
-      DGRContract: {
-        contractId: this.state.DataContractDGR,
-      },
-    },
-  };
-  const client = new Dash.Client(clientOpts);
-
-  const submitReplyDoc = async () => {
-    const { platform } = client;
-
-    let identity = "";
-    if (this.state.identityRaw !== "") {
-      identity = this.state.identityRaw;
-    } else {
-      identity = await platform.identities.get(this.state.identity);
-    }
-
-    const [document] = await client.platform.documents.get(
-      "DGRContract.dgrreply",
-      {
-        where: [
-          [
-            "$id",
-            "==",
-            this.state.replyToEdit.$id,
-          ],
-        ],
+      let identity = "";
+      if (this.state.identityRaw !== "") {
+        identity = this.state.identityRaw;
+      } else {
+        identity = await platform.identities.get(this.state.identity);
       }
-    );
 
-    if (
-      this.state.replyToEdit.reply !==
-      replyObject.reply
-    ) {
-      document.set("reply", replyObject.reply);
-    }
-
-    await platform.documents.broadcast({ replace: [document] }, identity);
-    return document;
-   
-
-    //############################################################
-    //This below disconnects the document editing..***
-
-     //return document;
-
-    //This is to disconnect the Document editing***
-    //############################################################
-  };
-
-  submitReplyDoc()
-    .then((d) => {
-      let returnedDoc = d.toJSON();
-      console.log("Edited Reply Doc:\n", returnedDoc);
-
-      let editedReply = {
-        $ownerId: returnedDoc.$ownerId,
-        $id: returnedDoc.$id,
-        $createdAt: returnedDoc.$createdAt,
-
+      const replyProperties = {
         reviewId: this.state.replyReview.$id,
         reply: replyObject.reply,
-      
+      };
+      //console.log('Reply to Create: ', replyProperties);
+
+      // Create the note document
+      const dgrDocument = await platform.documents.create(
+        "DGRContract.dgrreply",
+        identity,
+        replyProperties
+      );
+
+      //############################################################
+      //This below disconnects the document sending..***
+
+      // return dgrDocument;
+
+      //This is to disconnect the Document Creation***
+      //############################################################
+
+      const documentBatch = {
+        create: [dgrDocument], // Document(s) to create
       };
 
-      
-      let indexOfReply = this.state.YourReplies.findIndex(reply => {
-        return reply.$id === editedReply.$id;
-      });
+      await platform.documents.broadcast(documentBatch, identity);
+      return dgrDocument;
+    };
+
+    submitReviewDoc()
+      .then((d) => {
+        let returnedDoc = d.toJSON();
+        console.log("Document:\n", returnedDoc);
+
+        let reply = {
+          $ownerId: returnedDoc.$ownerId,
+          $id: returnedDoc.$id,
+          $createdAt: returnedDoc.$createdAt,
+
+          reviewId: this.state.replyReview.$id,
+          reply: replyObject.reply,
+        };
+
+        this.setState({
+          YourReplies: [reply, ...this.state.YourReplies],
+          isLoadingYourReviews: false,
+        });
+      })
+      .catch((e) => {
+        console.error("Something went wrong with reply creation:\n", e);
+      })
+      .finally(() => client.disconnect());
+  };
+
+  editReply = (replyObject) => {
+    console.log("Called Edit Reply");
+
+    this.setState({
+      isLoadingYourReviews: true,
+    });
+
+    const clientOpts = {
+      network: this.state.whichNetwork,
+      wallet: {
+        mnemonic: this.state.mnemonic,
+        adapter: LocalForage.createInstance,
+        unsafeOptions: {
+          skipSynchronizationBeforeHeight:
+            this.state.skipSynchronizationBeforeHeight,
+        },
+      },
+      apps: {
+        DGRContract: {
+          contractId: this.state.DataContractDGR,
+        },
+      },
+    };
+    const client = new Dash.Client(clientOpts);
+
+    const submitReplyDoc = async () => {
+      const { platform } = client;
+
+      let identity = "";
+      if (this.state.identityRaw !== "") {
+        identity = this.state.identityRaw;
+      } else {
+        identity = await platform.identities.get(this.state.identity);
+      }
+
+      const [document] = await client.platform.documents.get(
+        "DGRContract.dgrreply",
+        {
+          where: [["$id", "==", this.state.replyToEdit.$id]],
+        }
+      );
+
+      if (this.state.replyToEdit.reply !== replyObject.reply) {
+        document.set("reply", replyObject.reply);
+      }
+
+      await platform.documents.broadcast({ replace: [document] }, identity);
+      return document;
+
+      //############################################################
+      //This below disconnects the document editing..***
+
+      //return document;
+
+      //This is to disconnect the Document editing***
+      //############################################################
+    };
+
+    submitReplyDoc()
+      .then((d) => {
+        let returnedDoc = d.toJSON();
+        console.log("Edited Reply Doc:\n", returnedDoc);
+
+        let editedReply = {
+          $ownerId: returnedDoc.$ownerId,
+          $id: returnedDoc.$id,
+          $createdAt: returnedDoc.$createdAt,
+
+          reviewId: this.state.replyReview.$id,
+          reply: replyObject.reply,
+        };
+
+        let indexOfReply = this.state.YourReplies.findIndex((reply) => {
+          return reply.$id === editedReply.$id;
+        });
 
         let editedReplies = this.state.YourReplies;
 
@@ -1751,16 +1690,12 @@ class App extends React.Component {
           YourReplies: editedReplies,
           isLoadingYourReviews: false,
         });
-       
-
-    })
-    .catch((e) => {
-      console.error("Something went wrong with reply creation:\n", e);
-      
-    })
-    .finally(() => client.disconnect());
-
- }
+      })
+      .catch((e) => {
+        console.error("Something went wrong with reply creation:\n", e);
+      })
+      .finally(() => client.disconnect());
+  };
 
   doTopUpIdentity = (numOfCredits) => {
     this.setState({
@@ -1824,7 +1759,6 @@ class App extends React.Component {
           handleMode={this.handleMode}
           mode={this.state.mode}
           showModal={this.showModal}
-
           whichNetwork={this.state.whichNetwork}
           isLoggedIn={this.state.isLoggedIn}
           toggleTopNav={this.toggleTopNav}
@@ -1833,246 +1767,217 @@ class App extends React.Component {
         <Image fluid="true" id="dash-bkgd" src={DashBkgd} alt="Dash Logo" />
 
         <Container className="g-0">
-  <Row className="justify-content-md-center">
-    <Col md={9} lg={8} xl={7} xxl={6}>
-        
-
-        {this.state.isLoggedIn ? (
-          <>
-            <TabsOnPage
-              whichTab={this.state.whichTab}
-              handleTab={this.handleTab}
-            />
-
-        
-
-            <div className="bodytext">
-
-              {this.state.whichTab === "Search" ? (
+          <Row className="justify-content-md-center">
+            <Col md={9} lg={8} xl={7} xxl={6}>
+              {this.state.isLoggedIn ? (
                 <>
-                <LowCreditsOnPage 
-      identityInfo={this.state.identityInfo}
-      uniqueName={this.state.uniqueName}
-      showModal={this.showModal}
-       />
-
-                  <h3><b>Get Reviews for</b></h3>
-
-                  <NameSearchForm
-                  mode={this.state.mode}
-                  nameToSearch={this.state.nameToSearch}
-                  
-                  nameFormat={this.state.nameFormat}
-                  SearchedNameDoc={this.state.SearchedNameDoc}
-
-                  searchName={this.searchName}
-                  //tooLongNameError={this.state.tooLongNameError}
-                  
-                  handleOnChangeValidation={this.handleOnChangeValidation}
+                  <TabsOnPage
+                    whichTab={this.state.whichTab}
+                    handleTab={this.handleTab}
                   />
 
+                  <div className="bodytext">
+                    {this.state.whichTab === "Search" ? (
+                      <>
+                        <LowCreditsOnPage
+                          identityInfo={this.state.identityInfo}
+                          uniqueName={this.state.uniqueName}
+                          showModal={this.showModal}
+                        />
 
-                  {/* <div
+                        <h3>
+                          <b>Get Reviews for</b>
+                        </h3>
+
+                        <NameSearchForm
+                          mode={this.state.mode}
+                          nameToSearch={this.state.nameToSearch}
+                          nameFormat={this.state.nameFormat}
+                          SearchedNameDoc={this.state.SearchedNameDoc}
+                          searchName={this.searchName}
+                          //tooLongNameError={this.state.tooLongNameError}
+
+                          handleOnChangeValidation={
+                            this.handleOnChangeValidation
+                          }
+                        />
+
+                        {/* <div
                     className="BottomBorder"
                     style={{ paddingTop: ".5rem" }}
                   ></div> */}
-                  
 
-         
+                        <RatingSummary
+                          SearchedReviews={this.state.SearchedReviews}
+                          SearchedNameDoc={this.state.SearchedNameDoc}
+                          isLoadingSearch={this.state.isLoadingSearch}
+                        />
 
-<RatingSummary
-            SearchedReviews={this.state.SearchedReviews}
-            SearchedNameDoc={this.state.SearchedNameDoc}
-            isLoadingSearch={this.state.isLoadingSearch}
+                        {/* //Make the reviewSummary remove as well when No NameDoc? ^^^^ ->  */}
 
-            />
+                        <AddOrEditReviewButton
+                          SearchedReviews={this.state.SearchedReviews}
+                          SearchedNameDoc={this.state.SearchedNameDoc}
+                          identity={this.state.identity}
+                          showModal={this.showModal}
+                          handleEditReview={this.handleEditReview}
+                          isLoadingSearch={this.state.isLoadingSearch}
+                        />
 
-            
+                        {this.state.isLoadingSearch ? (
+                          <>
+                            <p></p>
+                            <div id="spinner">
+                              <Spinner animation="border" role="status">
+                                <span className="visually-hidden">
+                                  Loading...
+                                </span>
+                              </Spinner>
+                            </div>
+                            <p></p>
+                          </>
+                        ) : (
+                          <></>
+                        )}
 
-  {/* //Make the reviewSummary remove as well when No NameDoc? ^^^^ ->  */}
+                        <Reviews
+                          mode={this.state.mode}
+                          SearchedReviews={this.state.SearchedReviews}
+                          SearchedReviewNames={this.state.SearchedReviewNames}
+                          SearchedReplies={this.state.SearchedReplies}
+                          SearchedNameDoc={this.state.SearchedNameDoc}
+                        />
 
-<AddOrEditReviewButton
-SearchedReviews={this.state.SearchedReviews}
-SearchedNameDoc={this.state.SearchedNameDoc}
-identity={this.state.identity}
-showModal={this.showModal}
-handleEditReview={this.handleEditReview}
-isLoadingSearch={this.state.isLoadingSearch}
+                        {this.state.SearchedReviews.length === 0 &&
+                        !this.state.isLoadingSearch ? (
+                          <div className="bodytext">
+                            <p>Sorry, there are no reviews available.</p>
+                          </div>
+                        ) : (
+                          <></>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {/* THIS IS WHERE THE "YOUR Reviews" WILL GO */}
 
-/>
-
-
-
-{this.state.isLoadingSearch ? (
-          <>
-            <p></p>
-            <div id="spinner">
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
-            </div>
-            <p></p>
-          </>
-        ) : (
-          <></>
-        )}
-
-            <Reviews 
-            mode={this.state.mode}
-
-            SearchedReviews={this.state.SearchedReviews}
-            SearchedReviewNames={this.state.SearchedReviewNames}
-            SearchedReplies={this.state.SearchedReplies}
-
-            SearchedNameDoc={this.state.SearchedNameDoc}
-
-
-              />
-
-              {this.state.SearchedReviews.length === 0 && !this.state.isLoadingSearch ? 
-              <div className="bodytext">
-              <p>Sorry, there are no reviews available.</p>
-              </div>
-              :<></>}
-
-                  
-                </>
-              ) : (
-                <>
-                
-                  {/* THIS IS WHERE THE "YOUR Reviews" WILL GO */}
-
-          {/* <div className="BottomBorder" style={{ paddingTop: "1rem" }}></div>
+                        {/* <div className="BottomBorder" style={{ paddingTop: "1rem" }}></div>
             <p></p> */}
 
-            <CreditsOnPage
-            identityInfo={this.state.identityInfo}
-            uniqueName={this.state.uniqueName}
-            showModal={this.showModal}
-            />
-        
-                  <YourReviews
+                        <CreditsOnPage
+                          identityInfo={this.state.identityInfo}
+                          uniqueName={this.state.uniqueName}
+                          showModal={this.showModal}
+                        />
 
-                    YourReviews={this.state.YourReviews}
-                    YourReviewNames={this.state.YourReviewNames}
-                    YourReplies={this.state.YourReplies}
+                        <YourReviews
+                          YourReviews={this.state.YourReviews}
+                          YourReviewNames={this.state.YourReviewNames}
+                          YourReplies={this.state.YourReplies}
+                          identity={this.state.identity}
+                          uniqueName={this.state.uniqueName}
+                          handleYourReply={this.handleYourReply}
+                          mode={this.state.mode}
+                          isLoadingYourReviews={this.state.isLoadingYourReviews}
+                        />
+                      </>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <div className="bodytextnotop">
+                  <div className="bodytext" style={{ textAlign: "center" }}>
+                    <h3>
+                      Reviews to help build trust and grow the Dash economy!
+                    </h3>
+                  </div>
 
-                    identity={this.state.identity}
-                    uniqueName={this.state.uniqueName}
- 
-                    handleYourReply={this.handleYourReply}
+                  <div className="d-grid gap-2">
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      onClick={() => this.showModal("ConnectWalletModal")}
+                    >
+                      <b>Connect Wallet</b>
+                    </Button>
+                  </div>
 
+                  <div
+                    className="BottomBorder"
+                    style={{ paddingTop: "1rem" }}
+                  ></div>
+                  <p></p>
+                  <h3>
+                    <b>Get Reviews for</b>
+                  </h3>
+
+                  <NameSearchForm
                     mode={this.state.mode}
+                    nameToSearch={this.state.nameToSearch}
+                    SearchedNameDoc={this.state.SearchedNameDoc}
+                    nameFormat={this.state.nameFormat}
+                    searchName={this.searchName}
+                    //tooLongNameError={this.state.tooLongNameError}
 
-                    isLoadingYourReviews={this.state.isLoadingYourReviews}
+                    handleOnChangeValidation={this.handleOnChangeValidation}
                   />
 
-
-                </>
-              )}
-            </div>
-            
-          </>
-        ) : (
-          <div className="bodytextnotop">
-            <div className="bodytext" style={{ textAlign: "center" }}>
-              <h3>Reviews to help build trust and grow the Dash economy!</h3>
-            </div>
-
-            <div className="d-grid gap-2">
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={() => this.showModal("ConnectWalletModal")}
-              >
-                <b>Connect Wallet</b>
-              </Button>
-            </div>
-
-            <div className="BottomBorder" style={{ paddingTop: "1rem" }}></div>
-            <p></p>
-          <h3><b>Get Reviews for</b></h3>
-        
-            <NameSearchForm
-
-             mode={this.state.mode}
-             nameToSearch={this.state.nameToSearch}
-
-             SearchedNameDoc={this.state.SearchedNameDoc}
-             nameFormat={this.state.nameFormat}
-
-             searchName={this.searchName}
-            //tooLongNameError={this.state.tooLongNameError}
-             
-             handleOnChangeValidation={this.handleOnChangeValidation}
-            />
-
-{/* <div
+                  {/* <div
                     className="BottomBorder"
                     style={{ paddingTop: "1rem", paddingBottom: '.5rem' }}
                   ></div> */}
 
+                  <RatingSummary
+                    SearchedReviews={this.state.SearchedReviews}
+                    SearchedNameDoc={this.state.SearchedNameDoc}
+                    isLoadingSearch={this.state.isLoadingSearch}
+                  />
 
-            <RatingSummary
-            SearchedReviews={this.state.SearchedReviews}
-            SearchedNameDoc={this.state.SearchedNameDoc}
-            isLoadingSearch={this.state.isLoadingSearch}
+                  {this.state.isLoadingSearch ? (
+                    <>
+                      <p></p>
+                      <div id="spinner">
+                        <Spinner animation="border" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                      </div>
+                      <p></p>
+                    </>
+                  ) : (
+                    <></>
+                  )}
 
-            />
-          
+                  {!this.state.isLoadingSearch ? (
+                    <>
+                      <Reviews
+                        mode={this.state.mode}
+                        SearchedReviews={this.state.SearchedReviews}
+                        SearchedReviewNames={this.state.SearchedReviewNames}
+                        SearchedReplies={this.state.SearchedReplies}
+                        SearchedNameDoc={this.state.SearchedNameDoc}
+                      />
+                    </>
+                  ) : (
+                    <></>
+                  )}
 
-{this.state.isLoadingSearch ? (
-          <>
-            <p></p>
-            <div id="spinner">
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
-            </div>
-            <p></p>
-          </>
-        ) : (
-          <></>
-        )}
+                  {this.state.SearchedReviews.length === 0 &&
+                  !this.state.isLoadingSearch ? (
+                    <div className="bodytext">
+                      <p>Sorry, there are no reviews available.</p>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              )}
 
-{!this.state.isLoadingSearch ? (
-          <>
-             <Reviews 
-            mode={this.state.mode}
-
-            SearchedReviews={this.state.SearchedReviews}
-            SearchedReviewNames={this.state.SearchedReviewNames}
-            SearchedReplies={this.state.SearchedReplies}
-
-            SearchedNameDoc={this.state.SearchedNameDoc}
-
-              />
-          </>
-        ) : (
-          <></>
-        )}
-
-           
-
-              {this.state.SearchedReviews.length === 0 && !this.state.isLoadingSearch ? 
               <div className="bodytext">
-              <p>Sorry, there are no reviews available.</p>
+                <Footer />
               </div>
-            :
-            <></>}
-
-          
-          </div>
-        )}
-
-        <div className="bodytext">
-          <Footer />
-        </div>
-
-        </Col>
-        </Row>
+            </Col>
+          </Row>
         </Container>
-
 
         {/* #####    BELOW ARE THE MODALS    #####    */}
 
@@ -2117,7 +2022,7 @@ isLoadingSearch={this.state.isLoadingSearch}
           <></>
         )}
 
-         {this.state.isModalShowing &&
+        {this.state.isModalShowing &&
         this.state.presentModal === "CreateReviewModal" ? (
           <CreateReviewModal
             isModalShowing={this.state.isModalShowing}
@@ -2134,10 +2039,8 @@ isLoadingSearch={this.state.isLoadingSearch}
         {this.state.isModalShowing &&
         this.state.presentModal === "EditReviewModal" ? (
           <EditReviewModal
-
-          reviewToEdit={this.state.reviewToEdit}
-          SearchedNameDoc={this.state.SearchedNameDoc}
-
+            reviewToEdit={this.state.reviewToEdit}
+            SearchedNameDoc={this.state.SearchedNameDoc}
             editReview={this.editReview}
             isModalShowing={this.state.isModalShowing}
             hideModal={this.hideModal}
@@ -2148,15 +2051,12 @@ isLoadingSearch={this.state.isLoadingSearch}
           <></>
         )}
 
-{this.state.isModalShowing &&
+        {this.state.isModalShowing &&
         this.state.presentModal === "CreateReplyModal" ? (
           <CreateReplyModal
-
-          replyReview={this.state.replyReview}
-          replyingToName={this.state.replyingToName}
-
+            replyReview={this.state.replyReview}
+            replyingToName={this.state.replyingToName}
             createReply={this.createReply}
-
             isModalShowing={this.state.isModalShowing}
             hideModal={this.hideModal}
             mode={this.state.mode}
@@ -2165,16 +2065,14 @@ isLoadingSearch={this.state.isLoadingSearch}
         ) : (
           <></>
         )}
-        
+
         {this.state.isModalShowing &&
         this.state.presentModal === "EditReplyModal" ? (
           <EditReplyModal
-          replyReview={this.state.replyReview}
-        replyToEdit={this.state.replyToEdit}
-        replyingToName={this.state.replyingToName}
-
+            replyReview={this.state.replyReview}
+            replyToEdit={this.state.replyToEdit}
+            replyingToName={this.state.replyingToName}
             editReply={this.editReply}
-
             isModalShowing={this.state.isModalShowing}
             hideModal={this.hideModal}
             mode={this.state.mode}
@@ -2183,7 +2081,6 @@ isLoadingSearch={this.state.isLoadingSearch}
         ) : (
           <></>
         )}
-        
       </>
     );
   }
