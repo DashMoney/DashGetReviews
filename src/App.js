@@ -109,7 +109,7 @@ class App extends React.Component {
       //^^ Doesn't need names because they are only your replies.. -> yes
 
       SearchedNameDoc: {
-        $ownerId: "E98BXqGj6hNENCCnDmvXzCzmTCSgkBzEU3R18tfW1v2x",
+        $ownerId: "C8eBNg6fF3CEquZ3vVdb1APp5re12b6ytymhSvgiyEfp",
         label: "BurgerJoint",
       },
 
@@ -136,7 +136,7 @@ class App extends React.Component {
 
       SearchedReplies: [
         {
-          $ownerId: "E98BXqGj6hNENCCnDmvXzCzmTCSgkBzEU3R18tfW1v2x",
+          $ownerId: "C8eBNg6fF3CEquZ3vVdb1APp5re12b6ytymhSvgiyEfp",
           $id: "klsui4312",
           reply: "Thanks Alice",
           reviewId: "7ku98rj",
@@ -168,7 +168,7 @@ class App extends React.Component {
       skipSynchronizationBeforeHeight: 905000,
       mostRecentBlockHeight: 905000,
 
-      DataContractDGR: "GvMq3H76kUZotsdwPv9fdAuYGjk2XRojT5Ufj32WD4Xn",
+      DataContractDGR: "5C8ZwmirWwqsMk7EguTf2p2RHa1cD9z3hrR29quE92ug",
       DataContractDPNS: "GWRSAVFMjXx8HpQFaNJMqBV7MBgMK4br5UESsB4S31Ec",
 
       expandedTopNav: false,
